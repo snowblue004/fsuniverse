@@ -7,7 +7,7 @@
   <title>Happy 31st, FS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&family=Lora:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -74,9 +74,9 @@
       <h1>Happy 31st, FS. <span aria-hidden="true">❤️</span></h1>
 
       <div class="hero-copy">
-        <p>This isn't really a birthday page.</p>
+        <p class="hero-copy-lead">This is probably one of the nerdiest birthday gifts you've ever received. But honestly, that's kind of expected of me at this point, haha.</p>
         <p>It's a tiny museum of conversations, recommendations, random jokes, tea breaks, art, and all the little moments that, without us even noticing, became memories. :)</p>
-        <p>I hope it makes you smile at least as much as making it made me.</p>
+        <p class="hero-copy-close">I hope it makes you smile at least as much as making it made me.</p>
       </div>
 
       <button class="primary-button" id="enterMuseum">
@@ -396,12 +396,36 @@
       </div>
 
       <div class="art-wall">
-        <div class="art-frame"><img src="assets/images/art-01.jpg" alt="Finished artwork by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');"><span>Add art-01.jpg</span></div>
-        <div class="art-frame portrait"><img src="assets/images/art-02.jpg" alt="Finished artwork by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');"><span>Add art-02.jpg</span></div>
-        <div class="art-frame"><img src="assets/images/art-03.jpg" alt="Finished artwork by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');"><span>Add art-03.jpg</span></div>
-        <div class="art-frame"><img src="assets/images/ink-landscape.jpg" alt="Ink landscape artwork by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');"><span>Add ink-landscape.jpg</span></div>
-        <div class="art-frame portrait"><img src="assets/images/animated-world.webp" alt="Animated world artwork by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');"><span>Add animated-world.webp</span></div>
-        <div class="art-frame"><img src="assets/images/sketchbook.jpg" alt="Sketchbook page by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');"><span>Add sketchbook.jpg</span></div>
+        <div class="art-frame">
+          <img src="assets/images/art-01.jpg" alt="Finished artwork by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');">
+          <span class="missing-label">Add art-01.jpg</span>
+          <div class="art-caption">You made this like it was easy.</div>
+        </div>
+        <div class="art-frame portrait">
+          <img src="assets/images/art-02.jpg" alt="Finished artwork by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');">
+          <span class="missing-label">Add art-02.jpg</span>
+          <div class="art-caption">The kind of piece that makes people stop mid-scroll.</div>
+        </div>
+        <div class="art-frame">
+          <img src="assets/images/art-03.jpg" alt="Finished artwork by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');">
+          <span class="missing-label">Add art-03.jpg</span>
+          <div class="art-caption">Colour choices only you would think of.</div>
+        </div>
+        <div class="art-frame">
+          <img src="assets/images/ink-landscape.jpg" alt="Ink landscape artwork by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');">
+          <span class="missing-label">Add ink-landscape.jpg</span>
+          <div class="art-caption">Ink and patience. Both in good supply.</div>
+        </div>
+        <div class="art-frame portrait">
+          <img src="assets/images/animated-world.webp" alt="Animated world artwork by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');">
+          <span class="missing-label">Add animated-world.webp</span>
+          <div class="art-caption">Where things begin before they become something.</div>
+        </div>
+        <div class="art-frame">
+          <img src="assets/images/sketchbook.jpg" alt="Sketchbook page by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');">
+          <span class="missing-label">Add sketchbook.jpg</span>
+          <div class="art-caption">A whole world, built from scratch.</div>
+        </div>
       </div>
     </section>
 
@@ -445,41 +469,49 @@
           <div class="food-frame">
             <img src="assets/images/food/poha-tea.webp" alt="Poha and chai" loading="lazy">
           </div>
+          <figcaption>Poha &amp; chai. The morning didn't stand a chance.</figcaption>
         </figure>
         <figure class="food-card" data-dish="Dal rice, quietly unbeatable">
           <div class="food-frame">
             <img src="assets/images/food/dal-rice.webp" alt="Dal and rice" loading="lazy">
           </div>
+          <figcaption>Dal rice. No argument. Never an argument.</figcaption>
         </figure>
         <figure class="food-card" data-dish="Paneer curry &amp; roti, comfort in the best form">
           <div class="food-frame">
             <img src="assets/images/food/paneer-curry-roti.webp" alt="Paneer curry and roti" loading="lazy">
           </div>
+          <figcaption>Paneer sabzi &amp; roti. The one that fixes things.</figcaption>
         </figure>
         <figure class="food-card" data-dish="Rice kadhi, the real hug in a bowl">
           <div class="food-frame">
             <img src="assets/images/food/rice-kadhi.webp" alt="Rice and kadhi" loading="lazy">
           </div>
+          <figcaption>Rice kadhi. A hug that happens to be edible.</figcaption>
         </figure>
         <figure class="food-card" data-dish="Pasta, because Italy was right">
           <div class="food-frame">
             <img src="assets/images/food/pasta.webp" alt="Pasta" loading="lazy">
           </div>
+          <figcaption>Pasta. Italy was right and so were you.</figcaption>
         </figure>
         <figure class="food-card" data-dish="Noodles, quick, perfect, no notes">
           <div class="food-frame">
             <img src="assets/images/food/noodles.webp" alt="Noodles" loading="lazy">
           </div>
+          <figcaption>Maggieeeeeeee. Quick, perfect, no notes.</figcaption>
         </figure>
         <figure class="food-card" data-dish="Salad, fresh things have their season too">
           <div class="food-frame">
             <img src="assets/images/food/salad.webp" alt="Salad" loading="lazy">
           </div>
+          <figcaption>Salad. Fresh things have their season too.</figcaption>
         </figure>
         <figure class="food-card" data-dish="Sandwich &amp; vegetables, a very reasonable life choice">
           <div class="food-frame">
             <img src="assets/images/food/sandwich-vegetables.webp" alt="Sandwich with vegetables" loading="lazy">
           </div>
+          <figcaption>Sandwich &amp; veggies. A very reasonable life choice.</figcaption>
         </figure>
       </div>
     </section>
