@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#15111d">
+  <title>Happy 31st, FS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <audio id="bgMusic" loop preload="metadata">
+    <source src="assets/audio/journey.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="music-panel" id="musicPanel">
+    <button class="music-button" id="musicButton" type="button" aria-label="Play background music" aria-pressed="false">
+      <span class="music-icon" aria-hidden="true">♫</span>
+      <span class="music-copy">
+        <strong id="musicTitle">Let us add some music</strong>
+        <small id="musicSubtitle">while you scroll through this little journey</small>
+      </span>
+      <span class="equalizer" id="equalizer" aria-hidden="true">
+        <i></i><i></i><i></i>
+      </span>
+    </button>
+  </div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="hero" id="top">
+    <div class="hero-orb orb-one"></div>
+    <div class="hero-orb orb-two"></div>
+
+    <div class="hero-content">
+      <h1>Happy 31st, FS. <span aria-hidden="true">❤️</span></h1>
+
+      <div class="hero-copy">
+        <p>This isn't really a birthday page.</p>
+        <p>It's a tiny museum of conversations, recommendations, random jokes, tea breaks, art, and all the little moments that, without us even noticing, became memories. :)</p>
+        <p>I hope it makes you smile at least as much as making it made me.</p>
+      </div>
+
+      <button class="primary-button" id="enterMuseum">
+        <span>Begin exploring</span>
+        <span aria-hidden="true">↓</span>
+      </button>
+
+      <p class="small-invitation">Take your time exploring. I hid a few surprises along the way. 😊</p>
+    </div>
+
+    <div class="scroll-mark" aria-hidden="true">
+      <span></span>
+    </div>
+  </header>
+
+  <div class="archive-loader" id="archiveLoader" aria-hidden="true">
+    <div class="loader-card">
+      <p class="loader-title">Opening the archive...</p>
+      <div class="loader-lines" id="loaderLines"></div>
+    </div>
+  </div>
+
+  <main>
+    <section class="section intro-section reveal">
+      <div class="section-number">01</div>
+      <div class="section-heading">
+        <p class="eyebrow">The permanent collection</p>
+        <h2>A few things that feel very you</h2>
+      </div>
+
+      <div class="trait-grid">
+        <article class="trait-card tea-card" data-secret="tea">
+          <span class="trait-icon">☕</span>
+          <h3>Tea breaks</h3>
+          <p>Not just a drink. A pause button, a ritual, and occasionally an entire personality.</p>
+        </article>
+
+        <article class="trait-card">
+          <span class="trait-icon">🎨</span>
+          <h3>Making things</h3>
+          <p>Finished art, half-finished thoughts, and ideas that deserve their own little corner.</p>
+        </article>
+
+        <article class="trait-card bird-card" data-secret="bird">
+          <span class="trait-icon">🐦</span>
+          <h3>Cute birds</h3>
+          <p>A scientifically reliable way to improve almost any day.</p>
+        </article>
+
+        <article class="trait-card">
+          <span class="trait-icon">🔎</span>
+          <h3>Detective mode</h3>
+          <p>One innocent question. Twelve tabs later, the investigation is still ongoing.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section gallery-section reveal" id="photography">
+      <div class="section-number">02</div>
+      <div class="section-heading">
+        <p class="eyebrow">Through your eyes</p>
+        <h2>Moments you noticed</h2>
+        
+      </div>
+
+      <div class="photo-grid">
+        <figure class="photo-card tall">
+          <div class="media-frame">
+            <img src="assets/images/flower-shadow.jpg" alt="A flower and its shadow" onerror="this.closest('.media-frame').classList.add('missing-media'); this.style.display='none';">
+            <span class="media-fallback">Add flower-shadow.jpg</span>
+          </div>
+          <figcaption>Even ordinary light becomes interesting when you stop long enough to notice it.</figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="media-frame">
+            <img src="assets/images/golden-sunset.jpg" alt="A glowing golden sunset" onerror="this.closest('.media-frame').classList.add('missing-media'); this.style.display='none';">
+            <span class="media-fallback">Add golden-sunset.jpg</span>
+          </div>
+          <figcaption>A little proof that the sky sometimes knows exactly what it is doing.</figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="media-frame">
+            <img src="assets/images/harbour-sunset.jpg" alt="A sunset reflected over the harbour" onerror="this.closest('.media-frame').classList.add('missing-media'); this.style.display='none';">
+            <span class="media-fallback">Add harbour-sunset.jpg</span>
+          </div>
+          <figcaption>One quiet frame, holding more feeling than it probably intended to.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section recommendations reveal" id="recommendations">
+      <div class="section-number">03</div>
+      <div class="section-heading">
+        <p class="eyebrow">The recommendation shelf</p>
+        <h2>Things passed from one person to another</h2>
+      </div>
+
+      <div class="recommendation-grid">
+        <article class="recommendation-card">
+          <div class="recommendation-cover"><img src="assets/images/yellow-tail-merlot.jpg" alt="Yellow Tail Merlot" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;"><span hidden>🍷</span></div>
+          <p class="recommendation-type">A bottle</p>
+          <h3>Yellow Tail Merlot</h3>
+        </article>
+
+        <article class="recommendation-card">
+          <div class="recommendation-cover"><img src="assets/images/anxious-people.jpg" alt="Anxious People book cover" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;"><span hidden>📚</span></div>
+          <p class="recommendation-type">A book</p>
+          <h3>Anxious People</h3>
+        </article>
+
+        <article class="recommendation-card">
+          <div class="recommendation-cover"><img src="assets/images/tu-te-main.jpg" alt="Tu Te Main" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;"><span hidden>🎬</span></div>
+          <p class="recommendation-type">A film</p>
+          <h3>Tu Te Main</h3>
+        </article>
+
+        <article class="recommendation-card">
+          <div class="recommendation-cover"><img src="assets/images/guernsey.jpg" alt="The Guernsey Literary and Potato Peel Pie Society" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;"><span hidden>📖</span></div>
+          <p class="recommendation-type">A book</p>
+          <h3>The Guernsey Literary and Potato Peel Pie Society</h3>
+        </article>
+
+        <article class="recommendation-card">
+          <div class="recommendation-cover"><img src="assets/images/off-campus.jpg" alt="Off Campus series" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;"><span hidden>🏒</span></div>
+          <p class="recommendation-type">A series</p>
+          <h3>Off Campus</h3>
+        </article>
+
+        <article class="recommendation-card">
+          <div class="recommendation-cover"><img src="assets/images/aveeno.jpg" alt="Aveeno Stress Relief moisturizer" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;"><span hidden>🌿</span></div>
+          <p class="recommendation-type">A small comfort</p>
+          <h3>Aveeno Stress Relief</h3>
+        </article>
+      </div>
+    </section>
+
+    <section class="section art-section reveal" id="art">
+      <div class="section-number">04</div>
+      <div class="section-heading">
+        <p class="eyebrow">The art room</p>
+        <h2>Things only you could have made</h2>
+        
+      </div>
+
+      <div class="art-wall">
+        <div class="art-frame"><img src="assets/images/art-01.jpg" alt="Finished artwork by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');"><span>Add art-01.jpg</span></div>
+        <div class="art-frame portrait"><img src="assets/images/art-02.jpg" alt="Finished artwork by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');"><span>Add art-02.jpg</span></div>
+        <div class="art-frame"><img src="assets/images/art-03.jpg" alt="Finished artwork by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');"><span>Add art-03.jpg</span></div>
+      </div>
+    </section>
+
+    <section class="section sketchbook-section reveal">
+      <div class="section-number">05</div>
+      <div class="section-heading">
+        <p class="eyebrow">Inside your sketchbook</p>
+        <h2>The unfinished things count too</h2>
+      </div>
+
+      <div class="sketchbook">
+        <div class="sketch-page">
+          <img class="sketch-image" src="assets/images/sketchbook.jpg" alt="A page from FS's sketchbook" onerror="this.style.display='none';">
+          <div class="doodle doodle-flower">✿</div>
+          <div class="doodle doodle-coffee">☕</div>
+          <div class="doodle doodle-planet">🪐</div>
+          <div class="doodle doodle-balloon">◯</div>
+          <p class="sketch-fallback-copy">Flowers, coffee, planets, balloons, and little thoughts still deciding what they want to become.</p>
+          <span class="page-note">Not everything beautiful needs to be finished.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gif-section reveal">
+      <div class="section-number">06</div>
+      <div class="section-heading">
+        <p class="eyebrow">The reaction archive</p>
+        <h2>Three moods, no further explanation</h2>
+      </div>
+
+      <div class="gif-grid">
+        <button class="gif-card" data-gif="kelly">
+          <span class="gif-label">Kelly Kapoor</span>
+          <img class="gif-image" src="assets/gifs/kelly-kapoor.gif" alt="Kelly Kapoor reaction GIF" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
+          <span class="gif-placeholder" hidden>Spirit animal energy</span>
+        </button>
+
+        <button class="gif-card" data-gif="dhappa">
+          <span class="gif-label">Dhappa</span>
+          <img class="gif-image" src="assets/gifs/dhappa.gif" alt="Dancing skeleton GIF" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
+          <span class="gif-placeholder dancing" hidden>💀</span>
+        </button>
+
+        <button class="gif-card" data-gif="reaction">
+          <span class="gif-label">The universal reaction</span>
+          <img class="gif-image" src="assets/gifs/reaction.gif" alt="Reaction GIF" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
+          <span class="gif-placeholder" hidden>Add reaction.gif</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section quiz-section reveal">
+      <div class="section-number">07</div>
+      <div class="section-heading">
+        <p class="eyebrow">A highly scientific assessment</p>
+        <h2>How well do you know your own archive?</h2>
+      </div>
+
+      <div class="quiz-card" id="quizCard">
+        <p class="quiz-progress" id="quizProgress">Question 1 of 4</p>
+        <h3 id="quizQuestion">Which item belongs on the recommendation shelf?</h3>
+        <div class="quiz-options" id="quizOptions"></div>
+        <p class="quiz-feedback" id="quizFeedback" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="section wishes-section reveal" id="wishes">
+      <div class="section-number">08</div>
+      <div class="section-heading centered">
+        <p class="eyebrow">For your first birthday after stepping into your thirties</p>
+        <h2>A few things I hope this year brings you</h2>
+      </div>
+
+      <div class="wish-cloud">
+        <span>Love</span>
+        <span>Good health</span>
+        <span>Success</span>
+        <span>Good luck</span>
+        <span>Peace</span>
+        <span>Confidence</span>
+        <span>Financial security</span>
+        <span>Family happiness</span>
+        <span>Creativity</span>
+        <span>Travel</span>
+        <span>Joy</span>
+      </div>
+
+      <div class="final-message">
+        <p>I hope this year is kinder to you, surprises you in the best ways, and brings you closer to everything you have been quietly wishing for.</p>
+        <p>Happy 31st, FS. ❤️</p>
+        <p class="signature">GT</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="secret-toast" id="secretToast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
