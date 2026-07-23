@@ -624,27 +624,48 @@ function riseHearts() {
   }
 }
 
+/* ─── Long-press helper (works on touch + mouse) ── */
+function onLongPress(el, ms, callback) {
+  let timer;
+  function start(e) {
+    // Don't steal scrolls
+    timer = setTimeout(() => { callback(e); timer = null; }, ms);
+  }
+  function cancel() { clearTimeout(timer); timer = null; }
+  el.addEventListener("mousedown",  start);
+  el.addEventListener("touchstart", start,  { passive: true });
+  el.addEventListener("mouseup",    cancel);
+  el.addEventListener("mouseleave", cancel);
+  el.addEventListener("touchend",   cancel);
+  el.addEventListener("touchmove",  cancel, { passive: true });
+}
+
 /* ─── Easter eggs ───────────────────────────────── */
 
-// 1. The avatar — click 5 times fast for a surprise
+// 1. Avatar — 5 fast taps/clicks OR long-press (1s) for FS easter egg
 (function avatarEgg() {
   const avatar = document.querySelector(".avatar-img");
   if (!avatar) return;
   let clicks = 0, timer;
   avatar.style.cursor = "pointer";
+
+  function triggerFsEgg() {
+    showSecret("👋 hey, that's you. Happy birthday. 🎂");
+    riseHearts();
+    avatar.style.animation = "avatarSpin 0.6s ease";
+    setTimeout(() => avatar.style.animation = "", 650);
+  }
+
+  // 5 fast taps (desktop + mobile)
   avatar.addEventListener("click", () => {
     clicks++;
     clearTimeout(timer);
     timer = setTimeout(() => { clicks = 0; }, 900);
-    if (clicks >= 5) {
-      clicks = 0;
-      showSecret("Okay okay, I see you. Hi. 👋🎉");
-      launchConfetti(50, 0);
-      spawnHearts(avatar, 8);
-      avatar.style.animation = "avatarSpin 0.6s ease";
-      setTimeout(() => avatar.style.animation = "", 650);
-    }
+    if (clicks >= 5) { clicks = 0; triggerFsEgg(); }
   });
+
+  // Long-press 1s (especially for mobile)
+  onLongPress(avatar, 1000, triggerFsEgg);
 })();
 
 // 2. The scroll-progress bar — click it to skip to the end
@@ -710,12 +731,21 @@ document.querySelector("h1").addEventListener("click", e => {
   resetIdle();
 })();
 
-// 7. The final signature "GT" — click it
-document.querySelector(".signature").addEventListener("click", () => {
-  showSecret("That's me. Hi. Thanks for being you. 🩷");
-  spawnHearts(document.querySelector(".signature"), 8);
-  launchConfetti(35, 0);
-});
+// 7. Signature "GT" — click for a toast, long-press (1s) for the full GT leaf rain
+(function signatureEgg() {
+  const sig = document.querySelector(".signature");
+
+  sig.addEventListener("click", () => {
+    showSecret("That's me. Hi. Thanks for being you. 🩷");
+    spawnHearts(sig, 8);
+    launchConfetti(35, 0);
+  });
+
+  onLongPress(sig, 1000, () => {
+    showSecret("👋 hey, that's me. Long press unlocked. 🍂");
+    rainLeaves();
+  });
+})();
 
 /* ─── Card 3D tilt on mouse move ────────────────── */
 document.querySelectorAll(".trait-card, .recommendation-card").forEach(card => {

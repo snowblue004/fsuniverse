@@ -240,6 +240,7 @@ button {
 }
 
 .avatar-img {
+  pointer-events: auto;
   width: clamp(140px, 16vw, 210px);
   height: auto;
   display: block;
@@ -292,6 +293,13 @@ button {
 
 @media (max-width: 540px) {
   .avatar-float {
+    right: 6px;
+    bottom: 0;
+  }
+  .avatar-img {
+    width: clamp(72px, 18vw, 100px);
+  }
+  .avatar-label {
     display: none;
   }
 }
