@@ -11,28 +11,64 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <!-- ░░ Gate screen ░░ -->
+  <div class="gate" id="gate">
+    <div class="gate-card">
+      <p class="gate-eyebrow">before you go in</p>
+      <h2 class="gate-question" id="gateQuestion">
+        Enter two letter password 😄
+      </h2>
+      <p class="gate-hint" id="gateHint">Hint: nope. No hints!! haha!!</p>
+      <div class="gate-input-row">
+        <input
+          class="gate-input"
+          id="gateInput"
+          type="text"
+          placeholder="type your answer..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <button class="gate-submit" id="gateSubmit" type="button">→</button>
+      </div>
+      <p class="gate-error" id="gateError" aria-live="polite"></p>
+    </div>
+  </div>
+
   <audio id="bgMusic" loop preload="metadata">
-    <source src="assets/audio/journey.mp3" type="audio/mpeg">
+    <source src="assets/audio/ambient.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="bdayMusic" preload="metadata">
+    <source src="assets/audio/birthday.mp3" type="audio/mpeg">
   </audio>
 
   <div class="music-panel" id="musicPanel">
-    <button class="music-button" id="musicButton" type="button" aria-label="Play background music" aria-pressed="false">
+    <button class="music-button" id="musicButton" type="button" aria-label="Set the mood" aria-pressed="false">
       <span class="music-icon" aria-hidden="true">♫</span>
       <span class="music-copy">
-        <strong id="musicTitle">Let us add some music</strong>
-        <small id="musicSubtitle">while you scroll through this little journey</small>
+        <strong id="musicTitle">Set the mood</strong>
+        <small id="musicSubtitle">press play for a little atmosphere</small>
       </span>
       <span class="equalizer" id="equalizer" aria-hidden="true">
         <i></i><i></i><i></i>
       </span>
     </button>
   </div>
+
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="particles-container" id="particlesContainer" aria-hidden="true"></div>
   <div class="noise" aria-hidden="true"></div>
   <div class="cursor-glow" aria-hidden="true"></div>
 
   <header class="hero" id="top">
     <div class="hero-orb orb-one"></div>
     <div class="hero-orb orb-two"></div>
+    <div class="hero-orb orb-three"></div>
+
+    <div class="avatar-float" aria-hidden="true">
+      <img src="assets/images/avatar.png" alt="FS's Reddit avatar" class="avatar-img">
+      <span class="avatar-label">that's you! 👋</span>
+    </div>
 
     <div class="hero-content">
       <h1>Happy 31st, FS. <span aria-hidden="true">❤️</span></h1>
@@ -74,32 +110,156 @@
       <div class="trait-grid">
         <article class="trait-card tea-card" data-secret="tea">
           <span class="trait-icon">☕</span>
-          <h3>Tea breaks</h3>
-          <p>Not just a drink. A pause button, a ritual, and occasionally an entire personality.</p>
-        </article>
-
-        <article class="trait-card">
-          <span class="trait-icon">🎨</span>
-          <h3>Making things</h3>
-          <p>Finished art, half-finished thoughts, and ideas that deserve their own little corner.</p>
+          <h3>Chai, always</h3>
+          <p>Storm outside? Chai. Long day? Chai. Fasting? Still chai. The one ritual that holds everything together.</p>
         </article>
 
         <article class="trait-card bird-card" data-secret="bird">
-          <span class="trait-icon">🐦</span>
-          <h3>Cute birds</h3>
-          <p>A scientifically reliable way to improve almost any day.</p>
+          <span class="trait-icon">🎨</span>
+          <h3>Making things</h3>
+          <p>Drawing, colouring, cooking, therapeutic chores included. Not for an audience. Just because it needs to come out.</p>
         </article>
 
         <article class="trait-card">
           <span class="trait-icon">🔎</span>
-          <h3>Detective mode</h3>
-          <p>One innocent question. Twelve tabs later, the investigation is still ongoing.</p>
+          <h3>Reddit detective</h3>
+          <p>Spots the same account across three different usernames. Cracks the case. Files the report. "GT? Why are we so good at this?"</p>
+        </article>
+
+        <article class="trait-card">
+          <span class="trait-icon">🌌</span>
+          <h3>Believer in the unseen</h3>
+          <p>Astrology, spirits, the ouija board story, that dream. An open heart for the things science hasn't caught up to yet.</p>
         </article>
       </div>
     </section>
 
-    <section class="section gallery-section reveal" id="photography">
+    <section class="section qualities-section reveal" id="qualities">
       <div class="section-number">02</div>
+      <div class="section-heading">
+        <p class="eyebrow">The person behind all of this</p>
+        <h2>Fifteen things that are simply true</h2>
+      </div>
+
+      <div class="qualities-counter" id="qualitiesCounter" aria-live="polite">
+        <span id="qualitiesFound">0</span> of 15 discovered
+      </div>
+
+      <div class="qualities-constellation" id="qualitiesConstellation">
+        <div class="quality-orb" data-index="0">
+          <span class="quality-emoji">🤍</span>
+          <div class="quality-content">
+            <h3>Kind-hearted</h3>
+            <p>You never stop at feeling for one person. You naturally care about everyone affected.</p>
+          </div>
+        </div>
+        <div class="quality-orb" data-index="1">
+          <span class="quality-emoji">💙</span>
+          <div class="quality-content">
+            <h3>Deeply Empathetic</h3>
+            <p>You have a rare ability to step into someone else's shoes before forming an opinion.</p>
+          </div>
+        </div>
+        <div class="quality-orb" data-index="2">
+          <span class="quality-emoji">🌸</span>
+          <div class="quality-content">
+            <h3>Emotionally Thoughtful</h3>
+            <p>You notice feelings that most people overlook and respond with genuine care.</p>
+          </div>
+        </div>
+        <div class="quality-orb" data-index="3">
+          <span class="quality-emoji">💛</span>
+          <div class="quality-content">
+            <h3>Compassionate</h3>
+            <p>Your instinct isn't to judge; it's to understand.</p>
+          </div>
+        </div>
+        <div class="quality-orb" data-index="4">
+          <span class="quality-emoji">🌻</span>
+          <div class="quality-content">
+            <h3>Comforting</h3>
+            <p>You have a quiet way of making people feel lighter without pretending their pain doesn't exist.</p>
+          </div>
+        </div>
+        <div class="quality-orb" data-index="5">
+          <span class="quality-emoji">✨</span>
+          <div class="quality-content">
+            <h3>A Good Listener</h3>
+            <p>You remember the little things people tell you, and that makes them feel seen.</p>
+          </div>
+        </div>
+        <div class="quality-orb" data-index="6">
+          <span class="quality-emoji">🫶</span>
+          <div class="quality-content">
+            <h3>Supportive</h3>
+            <p>You encourage people without trying to take over their battles.</p>
+          </div>
+        </div>
+        <div class="quality-orb" data-index="7">
+          <span class="quality-emoji">🌊</span>
+          <div class="quality-content">
+            <h3>Understanding</h3>
+            <p>Even when someone hurts you, you try to understand what might have led them there.</p>
+          </div>
+        </div>
+        <div class="quality-orb" data-index="8">
+          <span class="quality-emoji">🌼</span>
+          <div class="quality-content">
+            <h3>Gentle</h3>
+            <p>You choose kindness in your words, even during difficult conversations.</p>
+          </div>
+        </div>
+        <div class="quality-orb" data-index="9">
+          <span class="quality-emoji">🕊️</span>
+          <div class="quality-content">
+            <h3>Non-Judgmental</h3>
+            <p>People can tell you difficult things because you make them feel safe instead of ashamed.</p>
+          </div>
+        </div>
+        <div class="quality-orb" data-index="10">
+          <span class="quality-emoji">🌙</span>
+          <div class="quality-content">
+            <h3>Emotionally Mature</h3>
+            <p>You can hold two conflicting truths at once: that someone can hurt you and still be hurting themselves.</p>
+          </div>
+        </div>
+        <div class="quality-orb" data-index="11">
+          <span class="quality-emoji">🌈</span>
+          <div class="quality-content">
+            <h3>Thoughtful</h3>
+            <p>Your care often shows up in the smallest gestures, and somehow those become the biggest ones.</p>
+          </div>
+        </div>
+        <div class="quality-orb" data-index="12">
+          <span class="quality-emoji">🌺</span>
+          <div class="quality-content">
+            <h3>Selfless</h3>
+            <p>You often think about how others are doing before talking about yourself.</p>
+          </div>
+        </div>
+        <div class="quality-orb" data-index="13">
+          <span class="quality-emoji">🌟</span>
+          <div class="quality-content">
+            <h3>Authentic</h3>
+            <p>Your kindness never feels performative. It simply seems to be who you are.</p>
+          </div>
+        </div>
+        <div class="quality-orb" data-index="14">
+          <span class="quality-emoji">🍃</span>
+          <div class="quality-content">
+            <h3>A Beautiful Soul</h3>
+            <p>You remind people that kindness doesn't have to be loud to leave a lasting impact.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="qualities-complete" id="qualitiesComplete" aria-live="polite">
+        <p>✦ That's all 15. And this isn't flattery, every single one of these is true. ✦</p>
+      </div>
+    </section>
+
+    <section class="section gallery-section reveal" id="photography">
+      <div class="section-number">03</div>
       <div class="section-heading">
         <p class="eyebrow">Through your eyes</p>
         <h2>Moments you noticed</h2>
@@ -107,7 +267,7 @@
       </div>
 
       <div class="photo-grid">
-        <figure class="photo-card tall">
+        <figure class="photo-card">
           <div class="media-frame">
             <img src="assets/images/flower-shadow.jpg" alt="A flower and its shadow" onerror="this.closest('.media-frame').classList.add('missing-media'); this.style.display='none';">
             <span class="media-fallback">Add flower-shadow.jpg</span>
@@ -130,11 +290,47 @@
           </div>
           <figcaption>One quiet frame, holding more feeling than it probably intended to.</figcaption>
         </figure>
+
+        <figure class="photo-card">
+          <div class="media-frame">
+            <img src="assets/images/deer.jpeg" alt="A deer, caught in a quiet moment" onerror="this.closest('.media-frame').classList.add('missing-media'); this.style.display='none';">
+            <span class="media-fallback">Add deer.jpeg</span>
+          </div>
+          <figcaption>The kind of moment that asks you to hold your breath and just let it be.</figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="media-frame">
+            <img src="assets/images/flower.jpg" alt="A flower" onerror="this.closest('.media-frame').classList.add('missing-media'); this.style.display='none';">
+            <span class="media-fallback">Add flower.jpg</span>
+          </div>
+          <figcaption>Some things are beautiful simply because they showed up.</figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <section class="section charm-section reveal" id="lucky-charm">
+      <div class="section-number">04</div>
+      <div class="section-heading centered">
+        <p class="eyebrow">A little magic moment</p>
+        <h2>The one the universe left for you</h2>
+      </div>
+
+      <div class="charm-showcase">
+        <figure class="charm-figure">
+          <div class="media-frame charm-frame">
+            <img src="assets/images/charm.jpg" alt="A keychain found on the ground, a lucky charm" onerror="this.closest('.media-frame').classList.add('missing-media'); this.style.display='none';">
+            <span class="media-fallback">Add charm.jpg</span>
+            <span class="charm-badge">🍀 lucky find</span>
+          </div>
+          <figcaption>Found on the ground, kept for a reason. Some things choose you.</figcaption>
+        </figure>
       </div>
     </section>
 
     <section class="section recommendations reveal" id="recommendations">
-      <div class="section-number">03</div>
+      <div class="section-number">05</div>
       <div class="section-heading">
         <p class="eyebrow">The recommendation shelf</p>
         <h2>Things passed from one person to another</h2>
@@ -176,11 +372,23 @@
           <p class="recommendation-type">A small comfort</p>
           <h3>Aveeno Stress Relief</h3>
         </article>
+
+        <article class="recommendation-card">
+          <div class="recommendation-cover"><img src="assets/images/vitamin.jpg" alt="D3 and Vitamin supplements" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;"><span hidden>💊</span></div>
+          <p class="recommendation-type">A health nudge</p>
+          <h3>D3 &amp; Vitamin supplements</h3>
+        </article>
+
+        <article class="recommendation-card rec-unavailable">
+          <div class="recommendation-cover"><img src="assets/images/lays.jpg" alt="Lays chips" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;"><span hidden>🍟</span></div>
+          <p class="recommendation-type">A snack</p>
+          <h3>Lays <span class="unavailable-tag">Still looooking… 😔</span></h3>
+        </article>
       </div>
     </section>
 
     <section class="section art-section reveal" id="art">
-      <div class="section-number">04</div>
+      <div class="section-number">06</div>
       <div class="section-heading">
         <p class="eyebrow">The art room</p>
         <h2>Things only you could have made</h2>
@@ -191,31 +399,14 @@
         <div class="art-frame"><img src="assets/images/art-01.jpg" alt="Finished artwork by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');"><span>Add art-01.jpg</span></div>
         <div class="art-frame portrait"><img src="assets/images/art-02.jpg" alt="Finished artwork by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');"><span>Add art-02.jpg</span></div>
         <div class="art-frame"><img src="assets/images/art-03.jpg" alt="Finished artwork by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');"><span>Add art-03.jpg</span></div>
-      </div>
-    </section>
-
-    <section class="section sketchbook-section reveal">
-      <div class="section-number">05</div>
-      <div class="section-heading">
-        <p class="eyebrow">Inside your sketchbook</p>
-        <h2>The unfinished things count too</h2>
-      </div>
-
-      <div class="sketchbook">
-        <div class="sketch-page">
-          <img class="sketch-image" src="assets/images/sketchbook.jpg" alt="A page from FS's sketchbook" onerror="this.style.display='none';">
-          <div class="doodle doodle-flower">✿</div>
-          <div class="doodle doodle-coffee">☕</div>
-          <div class="doodle doodle-planet">🪐</div>
-          <div class="doodle doodle-balloon">◯</div>
-          <p class="sketch-fallback-copy">Flowers, coffee, planets, balloons, and little thoughts still deciding what they want to become.</p>
-          <span class="page-note">Not everything beautiful needs to be finished.</span>
-        </div>
+        <div class="art-frame"><img src="assets/images/ink-landscape.jpg" alt="Ink landscape artwork by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');"><span>Add ink-landscape.jpg</span></div>
+        <div class="art-frame portrait"><img src="assets/images/animated-world.webp" alt="Animated world artwork by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');"><span>Add animated-world.webp</span></div>
+        <div class="art-frame"><img src="assets/images/sketchbook.jpg" alt="Sketchbook page by FS" onerror="this.style.display='none'; this.parentElement.classList.add('missing-art');"><span>Add sketchbook.jpg</span></div>
       </div>
     </section>
 
     <section class="section gif-section reveal">
-      <div class="section-number">06</div>
+      <div class="section-number">08</div>
       <div class="section-heading">
         <p class="eyebrow">The reaction archive</p>
         <h2>Three moods, no further explanation</h2>
@@ -223,42 +414,78 @@
 
       <div class="gif-grid">
         <button class="gif-card" data-gif="kelly">
-          <span class="gif-label">Kelly Kapoor</span>
+          <span class="gif-label">Spirit Animal</span>
           <img class="gif-image" src="assets/gifs/kelly-kapoor.gif" alt="Kelly Kapoor reaction GIF" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
-          <span class="gif-placeholder" hidden>Spirit animal energy</span>
+          <span class="gif-placeholder" hidden>Same Energy 🧿</span>
         </button>
 
         <button class="gif-card" data-gif="dhappa">
-          <span class="gif-label">Dhappa</span>
+          <span class="gif-label">Dhappa Moments</span>
           <img class="gif-image" src="assets/gifs/dhappa.gif" alt="Dancing skeleton GIF" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
-          <span class="gif-placeholder dancing" hidden>💀</span>
+          <span class="gif-placeholder" hidden>They never stop 💀</span>
         </button>
 
         <button class="gif-card" data-gif="reaction">
           <span class="gif-label">The universal reaction</span>
           <img class="gif-image" src="assets/gifs/reaction.gif" alt="Reaction GIF" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
-          <span class="gif-placeholder" hidden>Add reaction.gif</span>
+          <span class="gif-placeholder" hidden>Main apni favorite hoon🤭</span>
         </button>
       </div>
     </section>
 
-    <section class="section quiz-section reveal">
-      <div class="section-number">07</div>
+    <section class="section food-section reveal" id="food">
+      <div class="section-number">09</div>
       <div class="section-heading">
-        <p class="eyebrow">A highly scientific assessment</p>
-        <h2>How well do you know your own archive?</h2>
+        <p class="eyebrow">From your kitchen</p>
+        <h2>Things you made, and made look good</h2>
       </div>
 
-      <div class="quiz-card" id="quizCard">
-        <p class="quiz-progress" id="quizProgress">Question 1 of 4</p>
-        <h3 id="quizQuestion">Which item belongs on the recommendation shelf?</h3>
-        <div class="quiz-options" id="quizOptions"></div>
-        <p class="quiz-feedback" id="quizFeedback" aria-live="polite"></p>
+      <div class="food-grid">
+        <figure class="food-card" data-dish="Poha &amp; chai, the original morning ritual">
+          <div class="food-frame">
+            <img src="assets/images/food/poha-tea.webp" alt="Poha and chai" loading="lazy">
+          </div>
+        </figure>
+        <figure class="food-card" data-dish="Dal rice, quietly unbeatable">
+          <div class="food-frame">
+            <img src="assets/images/food/dal-rice.webp" alt="Dal and rice" loading="lazy">
+          </div>
+        </figure>
+        <figure class="food-card" data-dish="Paneer curry &amp; roti, comfort in the best form">
+          <div class="food-frame">
+            <img src="assets/images/food/paneer-curry-roti.webp" alt="Paneer curry and roti" loading="lazy">
+          </div>
+        </figure>
+        <figure class="food-card" data-dish="Rice kadhi, the real hug in a bowl">
+          <div class="food-frame">
+            <img src="assets/images/food/rice-kadhi.webp" alt="Rice and kadhi" loading="lazy">
+          </div>
+        </figure>
+        <figure class="food-card" data-dish="Pasta, because Italy was right">
+          <div class="food-frame">
+            <img src="assets/images/food/pasta.webp" alt="Pasta" loading="lazy">
+          </div>
+        </figure>
+        <figure class="food-card" data-dish="Noodles, quick, perfect, no notes">
+          <div class="food-frame">
+            <img src="assets/images/food/noodles.webp" alt="Noodles" loading="lazy">
+          </div>
+        </figure>
+        <figure class="food-card" data-dish="Salad, fresh things have their season too">
+          <div class="food-frame">
+            <img src="assets/images/food/salad.webp" alt="Salad" loading="lazy">
+          </div>
+        </figure>
+        <figure class="food-card" data-dish="Sandwich &amp; vegetables, a very reasonable life choice">
+          <div class="food-frame">
+            <img src="assets/images/food/sandwich-vegetables.webp" alt="Sandwich with vegetables" loading="lazy">
+          </div>
+        </figure>
       </div>
     </section>
 
     <section class="section wishes-section reveal" id="wishes">
-      <div class="section-number">08</div>
+      <div class="section-number">10</div>
       <div class="section-heading centered">
         <p class="eyebrow">For your first birthday after stepping into your thirties</p>
         <h2>A few things I hope this year brings you</h2>
@@ -283,10 +510,25 @@
         <p>Happy 31st, FS. ❤️</p>
         <p class="signature">GT</p>
       </div>
+
+      <div class="bday-song-wrap">
+        <button class="bday-song-button" id="bdaySongButton" type="button" aria-label="A birthday is incomplete without this">
+          <span class="bday-song-icon" aria-hidden="true">🎂</span>
+          <span class="bday-song-copy">
+            <strong>A birthday is incomplete without this</strong>
+            <small>go on, press it 🎉</small>
+          </span>
+          <span class="equalizer bday-equalizer" id="bdayEqualizer" aria-hidden="true">
+            <i></i><i></i><i></i>
+          </span>
+        </button>
+      </div>
     </section>
   </main>
 
   <div class="secret-toast" id="secretToast" role="status" aria-live="polite"></div>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
   <script src="script.js"></script>
 </body>
